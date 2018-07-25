@@ -121,8 +121,7 @@ fi
 ###custom config
 
 #history with time
-HISTTIMEFORMAT="%F %T "
-export HISTTIMEFORMAT
+export HISTTIMEFORMAT="%y/%m/%d %T "
 
 #remove continue dup history
 export HISTCONTROL=ignoredups
