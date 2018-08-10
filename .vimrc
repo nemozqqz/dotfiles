@@ -21,6 +21,7 @@ set autoindent
 filetype plugin indent on
 set tabstop=4
 set softtabstop=4
+set cursorline  
 set shiftwidth=4
 "set expandtab
 
@@ -53,6 +54,8 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 "
 "
+"
+let g:ycm_python_binary_path = '/usr/bin/python3'
 "
 "
 "cscope
