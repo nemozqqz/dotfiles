@@ -1,9 +1,19 @@
+
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/Shougo/neocomplete.vim'
 Plug 'https://github.com/vim-scripts/Mark--Karkat'
 Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/brookhong/cscope.vim'
 Plug 'https://github.com/mkitt/tabline.vim'
+Plug 'https://github.com/Shougo/neocomplete.vim'
+"Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 "let g:jedi#completions_command = "<C-N>"
@@ -26,11 +36,11 @@ set shiftwidth=4
 "set expandtab
 
 syntax enable
+set background=dark
 set t_Co=256
 colorscheme desert
 "colorscheme molokai
 set synmaxcol=512
-set background=dark
 
 set shell=bash
 set mouse=a
@@ -54,8 +64,11 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 "
 "
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endi
 "
-let g:ycm_python_binary_path = '/usr/bin/python3'
 "
 "
 "cscope
